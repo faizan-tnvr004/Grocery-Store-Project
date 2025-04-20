@@ -9,7 +9,7 @@ console.log('inventoryRoutes:', inventoryRoutes);
 const cartRoutes = require('./routes/addToCart');
 console.log('cartRoutes:', cartRoutes);
 
-const customerRoutes = require('./routes/addCustomer'); 
+const customerRoutes = require('./routes/allCustomer'); 
 console.log('customerRoutes:', customerRoutes);
 
 const removeFromCartRoutes = require('./routes/remove_from_cart.js');
