@@ -37,6 +37,7 @@ app.use('/api/customer',customerRoutes);
 app.use('/api/cart/remove',removeFromCartRoutes);
 app.use('/api/cart',getOneCartRoutes);
 //order api
+app.use('/api/orders', orderRoutes); 
 
 app.use('/api/inventory',getinventoryRoutes);
 
