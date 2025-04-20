@@ -32,4 +32,33 @@ const addCustomer = async (req, res) => {
     }
 };
 
-module.exports = { addCustomer };
+const getCustomer = async (req, res) => {
+    console.log("Received request at /api/customer/getCustomer");
+   
+
+    const { customerId } = req.params;
+
+    if (!customerId) {
+        console.log("Missing customerId:", { customerId });
+        return res.status(400).json({ message: "Missing required fields" });
+    }
+
+    try {
+        const pool = await poolPromise;
+        console.log("Connected to DB");
+
+        const result = await pool.request()
+            .input('customerId', sql.Int, customerId)
+            .execute('get_customer');
+
+            res.status(200).json(result.recordset);
+
+
+
+    } catch (error) {
+        console.error("Database Error:", error);
+        res.status(500).json({ message: "Internal server error.", error: error.message });
+    }
+};
+
+module.exports = { addCustomer, getCustomer };
