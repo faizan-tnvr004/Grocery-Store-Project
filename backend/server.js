@@ -34,7 +34,7 @@ console.log('getCategoryRoutes:', getCategoryRoutes);
 app.use('/api/inventory', inventoryRoutes);
 app.use('/api/cart',cartRoutes);
 app.use('/api/customer',customerRoutes);
-app.use('/api/cart/remove',removeFromCartRoutes);
+app.use('/api/cart',removeFromCartRoutes);
 app.use('/api/cart',getOneCartRoutes);
 //order api
 app.use('/api/orders', orderRoutes); 
