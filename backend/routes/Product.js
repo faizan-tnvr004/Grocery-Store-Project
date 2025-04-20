@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { addProduct, updateProduct, deleteProduct, retrieveProduct } = require('../controllers/productController');
+const { addProduct, updateProduct, deleteProduct, retrieveProduct, getLowStockItems, viewProducts } = require('../controllers/productController');
 
 // Route to add a product
 router.post('/add', addProduct);
@@ -13,5 +13,10 @@ router.delete('/delete/:productId', deleteProduct);
 
 // Route to retrieve a product by ID
 router.get('/retrieve/:productId', retrieveProduct);
+
+
+router.get('/low-stock', getLowStockItems);
+
+router.get('/view', viewProducts);
 
 module.exports = router;

@@ -5,7 +5,8 @@ const {
     updateOrderStatus,
     cancelOrder,
     getOrderDetails,
-    getOrderHistory
+    getOrderHistory,
+    viewAllOrders 
 } = require('../controllers/orderController');
 
 // Order placement
@@ -17,10 +18,13 @@ router.put('/status', updateOrderStatus);
 // Cancel an order
 router.post('/cancel', cancelOrder);
 
-// Get specific order details
-router.get('/:order_id', getOrderDetails);
-
 // Get order history for customer
 router.get('/history', getOrderHistory);
+
+// Get specific order details
+router.get('/details/:order_id', getOrderDetails);
+
+// View all orders
+router.get('/all', viewAllOrders); // New route for viewing all orders
 
 module.exports = router;

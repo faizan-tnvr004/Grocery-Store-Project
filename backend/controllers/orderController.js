@@ -179,10 +179,34 @@ const getOrderHistory = async (req, res) => {
     }
 };
 
+// VIEW ALL ORDERS
+const viewAllOrders = async (req, res) => {
+    try {
+        const pool = await poolPromise;
+        const result = await pool.request()
+        .query('SELECT * FROM order_details'); // Replace with your stored procedure name
+
+        res.status(200).json({
+            success: true,
+            data: result.recordset,
+            message: 'All orders retrieved successfully'
+        });
+
+    } catch (error) {
+        console.error('Fetch all orders failed:', error);
+        res.status(500).json({
+            success: false,
+            error: 'Failed to retrieve all orders',
+            details: error.message
+        });
+    }
+};
+
 module.exports = { 
     placeOrder, 
     updateOrderStatus, 
     cancelOrder,
     getOrderDetails, 
-    getOrderHistory 
+    getOrderHistory,
+    viewAllOrders // Export the new function
 };

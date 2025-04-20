@@ -132,6 +132,54 @@ try {
 }
 }
 ;
+const getLowStockItems = async (req, res) => {
+    const threshold = parseInt(req.query.threshold) || 10;
+    // i am using parse int here to get a default value in this case
+
+    try {
+        const pool = await poolPromise;
+        const result = await pool.request()
+            .input('threshold', sql.Int, threshold)
+            .execute('get_low_stock_items');
+
+        res.status(200).json({
+            success: true,
+            message: 'Low stock items retrieved',
+            data: result.recordset //for multiple rows
+        });
+    } catch (error) {
+        console.error('Fetch low stock failed:', error);
+        res.status(500).json({
+            success: false,
+            error: 'Failed to retrieve low stock items',
+            details: error.message
+        });
+    }
+};
 
 
-module.exports = { addProduct, updateProduct, deleteProduct, retrieveProduct };
+//view all products
+const viewProducts = async (req, res) => {
+    try {
+        const pool = await poolPromise;
+        const result = await pool.request()
+        .query('SELECT * FROM available_products'); // Replace with your stored procedure name
+
+        res.status(200).json({
+            success: true,
+            data: result.recordset,
+            message: 'All products retrieved successfully'
+        });
+
+    } catch (error) {
+        console.error('Fetch all products failed:', error);
+        res.status(500).json({
+            success: false,
+            error: 'Failed to retrieve all products',
+            details: error.message
+        });
+    }
+};
+
+
+module.exports = { addProduct, updateProduct, deleteProduct, retrieveProduct, getLowStockItems, viewProducts };

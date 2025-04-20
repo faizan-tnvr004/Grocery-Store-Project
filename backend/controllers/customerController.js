@@ -61,4 +61,28 @@ const getCustomer = async (req, res) => {
     }
 };
 
-module.exports = { addCustomer, getCustomer };
+// VIEW ALL customers
+const viewCustomers = async (req, res) => {
+    try {
+        const pool = await poolPromise;
+        const result = await pool.request()
+        .query('SELECT * FROM viewAllCustomers'); // Replace with your stored procedure name
+
+        res.status(200).json({
+            success: true,
+            data: result.recordset,
+            message: 'All customers retrieved successfully'
+        });
+
+    } catch (error) {
+        console.error('Fetch all customers failed:', error);
+        res.status(500).json({
+            success: false,
+            error: 'Failed to retrieve all customers',
+            details: error.message
+        });
+    }
+};
+
+
+module.exports = { addCustomer, getCustomer,viewCustomers };
