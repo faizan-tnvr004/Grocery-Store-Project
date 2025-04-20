@@ -18,8 +18,8 @@ console.log('removeFromCartRoutes:', removeFromCartRoutes);
 const getOneCartRoutes = require('./routes/getOneCart.js');
 console.log('getOneCartRoutes:', getOneCartRoutes);
 
-const addProduct = require('./routes/addProduct.js');
-console.log('addProduct:', addProduct);
+const product = require('./routes/Product.js');
+console.log('ProdutAPi:', product);
 
 
 // Use inventory routes
@@ -28,7 +28,8 @@ app.use('/api/cart',cartRoutes);
 app.use('/api/customer',customerRoutes);
  app.use('/api/cart/remove',removeFromCartRoutes);
 app.use('/api/cart',getOneCartRoutes);
-app.use('/api/product',addProduct);
+
+app.use('/api/product',product);
 
 app.get('/', (req, res) => {
     res.send('Server is running!');
