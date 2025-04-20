@@ -27,6 +27,8 @@ console.log('orderRoutes:',orderRoutes);
 const getinventoryRoutes = require('./routes/inventory');
 console.log('inventoryRooutes:',inventoryRoutes);
 
+const getCategoryRoutes = require('./routes/displayCategory.js');
+console.log('getCategoryRoutes:', getCategoryRoutes);
 
 // Use inventory routes
 app.use('/api/inventory', inventoryRoutes);
@@ -34,15 +36,12 @@ app.use('/api/cart',cartRoutes);
 app.use('/api/customer',customerRoutes);
 app.use('/api/cart/remove',removeFromCartRoutes);
 app.use('/api/cart',getOneCartRoutes);
-<<<<<<< HEAD
+//order api
+
+app.use('/api/inventory',getinventoryRoutes);
 
 app.use('/api/product',product);
-=======
-app.use('/api/product',addProduct);
-app.use('/api/orders',orderRoutes);
-app.use('/api/inventory', getinventoryRoutes);
-
->>>>>>> e743eb2dcf53ec7454611a8c81eb086a969431d3
+app.use('/api/show',getCategoryRoutes); 
 
 app.get('/', (req, res) => {
     res.send('Server is running!');
