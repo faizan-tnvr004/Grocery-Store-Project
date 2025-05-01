@@ -1,14 +1,13 @@
 import React from "react";
-import Header from "./top"; // Import the Header component
-import FirstProd  from "./first_row";
-
-
+import Button from "@mui/material/Button";
 
 function App() {
   return (
     <div>
-    <Header />
-      <FirstProd />
+      <h1>Material UI Button</h1>
+      <Button variant="contained" color="secondary">
+        Click Me
+      </Button>
     </div>
   );
 }
