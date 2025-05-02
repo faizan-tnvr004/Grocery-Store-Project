@@ -97,8 +97,8 @@ const HomePage = () => {
               py: 1.5
             }} 
             component={Link} 
-            to="/products"
-            sx={{ /* styles */ }}
+            to="categories"
+          
           >
             Shop Now
           </Button>

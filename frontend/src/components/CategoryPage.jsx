@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import api from './api';  // Import the custom api object
+import axios from 'axios';
 import { Grid, Typography, Box } from '@mui/material';
+// We’ll import CategoryCard later once it’s ready
 
 const CategoryPage = () => {
   const [categories, setCategories] = useState([]);
@@ -10,11 +11,11 @@ const CategoryPage = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await api.get('/show/categories');  // Using api.get instead of axios.get
+        const res = await axios.get('http://localhost:5000/api/show/categories'); // Adjust the endpoint as needed
         setCategories(res.data);
       } catch (err) {
         setError(err);
-        console.error('Error fetching categories:', err);  // Log the error
+        console.error('Error fetching categories:', err); // Log the error
       } finally {
         setLoading(false);
       }
@@ -35,6 +36,7 @@ const CategoryPage = () => {
       <Grid container spacing={4}>
         {categories.map((cat) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={cat.category_id}>
+            {/* Later: Replace with <CategoryCard category={cat} /> */}
             <Box
               sx={{
                 border: '1px solid #ddd',
@@ -46,7 +48,7 @@ const CategoryPage = () => {
             >
               <img
                 src={cat.image}
-                alt={cat.name}
+                alt={cat.category_name}
                 style={{ width: '100%', height: '180px', objectFit: 'cover', borderRadius: 8 }}
               />
               <Typography variant="h6" mt={1}>

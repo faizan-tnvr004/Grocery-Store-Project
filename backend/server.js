@@ -2,6 +2,12 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 app.use(express.json());
+const cors = require('cors');
+
+// Enable CORS for all requests
+app.use(cors({
+    origin: 'http://localhost:3000',
+  }));
 
 const inventoryRoutes = require('./routes/inventoryAdd');
 console.log('inventoryRoutes:', inventoryRoutes);
