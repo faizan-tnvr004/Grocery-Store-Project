@@ -25,7 +25,7 @@ const HomePage = () => {
           <Button 
             color="inherit" 
             component={Link} 
-            to="/shop" 
+            to="/categories" 
             sx={{ color: '#ffffff' }}
           >
             Shop
