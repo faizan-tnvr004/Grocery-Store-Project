@@ -1,63 +1,45 @@
-import React, { useEffect, useState } from 'react';
-import api from './api';  // Import the custom api object
-import { Grid, Typography, Box } from '@mui/material';
+const { sql, poolPromise } = require('../db');
 
-const CategoryPage = () => {
-  const [categories, setCategories] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+const getProductsByCategory = async (req, res) => {
+  const { categoryName } = req.params;
 
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const res = await api.get('/show/categories');  // Using api.get instead of axios.get
-        setCategories(res.data);
-      } catch (err) {
-        setError(err);
-        console.error('Error fetching categories:', err);  // Log the error
-      } finally {
-        setLoading(false);
-      }
-    };
+  if (!categoryName) {
+    return res.status(400).json({ error: 'Category name is required' });
+  }
 
-    fetchCategories();
-  }, []);
+  try {
+    const pool = await poolPromise;
 
-  if (loading) return <Typography>Loading categories...</Typography>;
-  if (error) return <Typography>Error loading categories: {error.message}</Typography>;
+    const result = await pool.request()
+      .input('categoryName', sql.VarChar(100), categoryName)
+      .execute('get_products_by_category');
 
-  return (
-    <Box sx={{ padding: 4 }}>
-      <Typography variant="h4" gutterBottom>
-        Shop by Category
-      </Typography>
+    res.status(200).json(result.recordset);
+  } catch (error) {
+    console.error('Error fetching products by category:', error);
 
-      <Grid container spacing={4}>
-        {categories.map((cat) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={cat.category_id}>
-            <Box
-              sx={{
-                border: '1px solid #ddd',
-                borderRadius: 2,
-                padding: 2,
-                textAlign: 'center',
-                boxShadow: 1,
-              }}
-            >
-              <img
-                src={cat.image}
-                alt={cat.name}
-                style={{ width: '100%', height: '180px', objectFit: 'cover', borderRadius: 8 }}
-              />
-              <Typography variant="h6" mt={1}>
-                {cat.name}
-              </Typography>
-            </Box>
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
-  );
+    if (error.number === 50000) {
+      return res.status(404).json({ error: error.message });
+    }
+
+    res.status(500).json({ error: 'Failed to fetch products by category' });
+  }
 };
 
-export default CategoryPage;
+
+
+const getAllCategories = async (req, res) => {
+  try {
+    const pool = await poolPromise;
+
+    const result = await pool.request()
+      .execute('getAllCategories'); 
+
+    res.status(200).json(result.recordset);
+  } catch (error) {
+    console.error('Error fetching all categories:', error);
+    res.status(500).json({ error: 'Failed to fetch categories' });
+  }
+};
+module.exports = { getProductsByCategory, getAllCategories };
+
