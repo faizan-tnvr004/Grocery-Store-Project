@@ -30,7 +30,7 @@ const HomePage = () => {
           >
             Shop
           </Button>
-          <Button color="inherit" sx={{ color: '#ffffff' }}>Deals</Button>
+         
           <Button color="inherit" sx={{ color: '#ffffff' }}>About</Button>
           <IconButton color="inherit" sx={{ color: '#ffffff' }}>
             <SearchIcon />
