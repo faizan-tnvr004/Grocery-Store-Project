@@ -28,7 +28,16 @@ const TopNavBar = () => {
         >
           Shop
         </Button>
-        <Button color="inherit" sx={{ color: '#ffffff' }}>About</Button>
+        <Button 
+           color="inherit"
+           component={Link}
+           to="/about"
+           sx={{ color: '#ffffff' }}
+        >
+            About
+            
+        </Button>
+        
         <IconButton color="inherit" sx={{ color: '#ffffff' }}>
           <SearchIcon />
         </IconButton>

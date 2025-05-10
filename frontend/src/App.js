@@ -4,6 +4,8 @@ import HomePage from './components/HomePage';
 import ProductPage from './components/ProductPage';
 import CategoryPage from './components/CategoryPage'; // Assuming you have a file that exports categories
 import CartPage from './components/CartPage';
+import AboutPage from './components/AboutPage';
+
 
 function App() {
   return (
@@ -13,6 +15,7 @@ function App() {
         <Route path="/product/:productId" element={<ProductPage />} />
         <Route path="/categories" element={<CategoryPage />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/about" element={<AboutPage />} />
       </Routes>
     </Router>
   );
