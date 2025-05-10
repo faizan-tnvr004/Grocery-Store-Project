@@ -57,7 +57,7 @@ const HomePage = () => {
       {/* Hero Section */}
       <Box
         sx={{
-          background: '#f8f8f8',
+          background: '#bae0bc',
           minHeight: '80vh',
           display: 'flex',
           alignItems: 'center',

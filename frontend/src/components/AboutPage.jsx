@@ -1,12 +1,14 @@
 import React from 'react';
 import './AboutPage.css'; // Ensure this CSS file is correctly linked
-
+import TopNavBar from './TopNavBar';
 const AboutPage = () => {
   return (
     <div className="about-page">
       {/* Hero Section */}
+       <TopNavBar />
       <section className="about-hero">
         <div className="hero-content">
+
           <h1>HF Grocery Store</h1>
           <p>Freshness delivered to your doorstep</p>
         </div>
@@ -67,7 +69,7 @@ const AboutPage = () => {
         <h2>Contact Us</h2>
         <p>If you have any inquiries or need assistance, feel free to reach out to our team:</p>
         <ul className="contact-list">
-           <li><strong>Faizan Tanveer</strong> - Co-Founder : 0335 107 1087</li>
+           <li><strong>Faizan Tanveer</strong> - Founder : 0335 107 1087</li>
            <li><strong>Hussain Farhan</strong> - CEO: 0324 460 1606</li>
                  </ul>
       </section>

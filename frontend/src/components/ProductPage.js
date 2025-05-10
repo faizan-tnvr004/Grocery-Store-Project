@@ -34,8 +34,9 @@ const ProductPage = () => {
 
   return (
     <>
+    
       <TopNavBar />
-      <Box sx={{ padding: 4 }}>
+      <Box sx={{ padding: 4 ,  backgroundColor: '#bae0bc'}}>
         <Typography variant="h4" gutterBottom
         sx={{ fontSize: '2.5rem', fontFamily: 'Roboto, sans-serif', fontWeight: 'bold', color: '#333', textAlign: 'center' }}>
           {category} Products
@@ -61,6 +62,7 @@ const ProductPage = () => {
                       backgroundColor: '#c95d36',
                       transform: 'scale(1.03)',
                       boxShadow: 3,
+                      color: 'white',
                     },
                   }}
                 >

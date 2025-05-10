@@ -32,7 +32,7 @@ const CategoryPage = () => {
   return (
     <>
       <TopNavBar />
-      <Box sx={{ padding: 4, textAlign: 'center' }}>
+      <Box sx={{ padding: 4, textAlign: 'center' , backgroundColor: '#bae0bc' }}>
         <Typography variant="h4" gutterBottom
         sx={{ fontSize: '2.5rem', fontFamily: 'Roboto, sans-serif', fontWeight: 'bold', color: '#333' }}>
           Shop by Category
@@ -62,6 +62,7 @@ const CategoryPage = () => {
                     cursor: 'pointer', // pointer cursor on hover
                     backgroundColor: '#c95d36',
                     transform: 'scale(1.03)',
+                    color: 'white',
                     boxShadow: 3,
                   },
                 }}
