@@ -59,7 +59,7 @@ const SpecificProductPage = () => {
     <>
        
       <TopNavBar />
-      <Box sx={{ padding: 4, display: 'flex', gap: 4  }}>
+      <Box sx={{ padding: 4, display: 'flex', gap: 4  , backgroundColor: '#e0c097', height: '100vh' }}>
         {/* Product Image */}
         <img
           src={product.image_url }

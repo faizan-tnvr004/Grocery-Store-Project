@@ -6,7 +6,8 @@ import CategoryPage from './components/CategoryPage'; // Assuming you have a fil
 import CartPage from './components/CartPage';
 import AboutPage from './components/AboutPage';
 import SpecificProductPage from './components/SpecificProductsPage'; // Assuming you have a file that exports specific product page
-
+import SignupPage from './components/SignupPage';
+import LoginPage from './components/LoginPage';
 function App() {
   return (
     <Router>
@@ -15,6 +16,8 @@ function App() {
         <Route path="/category/:category" element={<ProductPage />} />
         <Route path="/categories" element={<CategoryPage />} />
         <Route path="/product/:productId" element={<SpecificProductPage />} /> {/* Fixed component name */}
+        <Route path="/signUp" element={<SignupPage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/about" element={<AboutPage />} />
       </Routes>
