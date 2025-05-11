@@ -1,8 +1,9 @@
 {
   "dependencies": {
     "body-parser": "^2.2.0",
-    "dotenv": "^16.4.7",
+    "dotenv": "^16.5.0",
     "grocery-store-project": "file:",
+    "jsonwebtoken": "^9.0.2",
     "mssql": "^11.0.1"
   },
   "name": "grocery-store-project",

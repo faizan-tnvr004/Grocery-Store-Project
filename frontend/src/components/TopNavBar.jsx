@@ -53,7 +53,7 @@ const TopNavBar = () => {
           color="inherit" 
           sx={{ color: '#ffffff' }}
           component={Link}
-          to="/account"
+          to="/login"
         >
           <AccountCircleIcon />
         </IconButton>

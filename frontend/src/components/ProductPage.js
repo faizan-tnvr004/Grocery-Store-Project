@@ -18,6 +18,7 @@ const ProductPage = () => {
         // Make an API call to fetch products based on the category
         const response = await axios.get(`http://localhost:5000/api/show/category/${category}`);
         setProducts(response.data);
+        console.log (response.data);
       } catch (err) {
         setError('Error loading products');
         console.error(err);
@@ -36,7 +37,7 @@ const ProductPage = () => {
     <>
     
       <TopNavBar />
-      <Box sx={{ padding: 4 ,  backgroundColor: '#bae0bc'}}>
+      <Box sx={{ padding: 4 ,  backgroundColor: '#e0c097', height: '100vh' }}>
         <Typography variant="h4" gutterBottom
         sx={{ fontSize: '2.5rem', fontFamily: 'Roboto, sans-serif', fontWeight: 'bold', color: '#333', textAlign: 'center' }}>
           {category} Products
@@ -52,6 +53,7 @@ const ProductPage = () => {
                   sx={{
                     border: '1px solid #ddd',
                     borderRadius: 2,
+                    borderColor: 'black',
                     padding: 2,
                     textAlign: 'center',
                     boxShadow: 1,
@@ -67,7 +69,7 @@ const ProductPage = () => {
                   }}
                 >
                   <img
-                    src={product.image_url || 'https://via.placeholder.com/200x180'}
+                    src={product.image_url }
                     alt={product.name}
                     style={{
                       width: '200px',

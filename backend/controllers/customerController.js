@@ -23,8 +23,10 @@ const addCustomer = async (req, res) => {
             .execute('add_customer');
 
         console.log("Stored Procedure Execution Result:", result);
+ res.status(201).json({
+        message: "Customer added successfully.", customerId: result.recordset[0].customer_id
+    });
 
-        res.status(201).json({ message: "Customer added successfully." });
 
     } catch (error) {
         console.error("Database Error:", error);

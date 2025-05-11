@@ -47,7 +47,7 @@ const HomePage = () => {
             color="inherit" 
             sx={{ color: '#ffffff' }}
             component={Link}
-            to="/account"
+            to="/login"
           >
             <AccountCircleIcon />
           </IconButton>
@@ -57,7 +57,7 @@ const HomePage = () => {
       {/* Hero Section */}
       <Box
         sx={{
-          background: '#bae0bc',
+          background: '#e0c097',
           minHeight: '80vh',
           display: 'flex',
           alignItems: 'center',

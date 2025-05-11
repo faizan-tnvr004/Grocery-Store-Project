@@ -32,7 +32,7 @@ const CategoryPage = () => {
   return (
     <>
       <TopNavBar />
-      <Box sx={{ padding: 4, textAlign: 'center' , backgroundColor: '#bae0bc' }}>
+      <Box sx={{ padding: 4, textAlign: 'center' , backgroundColor: '#e0c097' }}>
         <Typography variant="h4" gutterBottom
         sx={{ fontSize: '2.5rem', fontFamily: 'Roboto, sans-serif', fontWeight: 'bold', color: '#333' }}>
           Shop by Category
@@ -52,6 +52,7 @@ const CategoryPage = () => {
               <Box
                 sx={{ //this is for the cards!
                   border: '1px solid #ddd',
+                  borderColor: 'black',
                   borderRadius: 2,
                   padding: 2,
                   textAlign: 'center',
