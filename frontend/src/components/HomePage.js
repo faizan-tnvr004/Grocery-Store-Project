@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { AppBar, Toolbar, Typography, IconButton, Button, Box } from "@mui/material";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import SearchIcon from '@mui/icons-material/Search';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const HomePage = () => {  
@@ -32,9 +31,21 @@ const HomePage = () => {
           </Button>
          
           <Button color="inherit" sx={{ color: '#ffffff' }}>About</Button>
-          <IconButton color="inherit" sx={{ color: '#ffffff' }}>
-            <SearchIcon />
-          </IconButton>
+         
+          <Button 
+            color="inherit"
+            component={Link}
+            to="/order-history"
+           sx={{ 
+              color: '#ffffff',
+              minWidth: 'auto',
+              fontWeight: 'bold',
+             fontSize: '1.1rem'
+               }}
+>
+               H
+           </Button>
+
           <IconButton 
             color="inherit" 
             sx={{ color: '#ffffff' }}

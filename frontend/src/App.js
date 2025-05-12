@@ -5,9 +5,12 @@ import ProductPage from './components/ProductPage';
 import CategoryPage from './components/CategoryPage'; // Assuming you have a file that exports categories
 import CartPage from './components/CartPage';
 import AboutPage from './components/AboutPage';
-import SpecificProductPage from './components/SpecificProductsPage'; // Assuming you have a file that exports specific product page
+import SpecificProductPage from './components/SpecificProductPage'; // Assuming you have a file that exports specific product page
 import SignupPage from './components/SignupPage';
 import LoginPage from './components/LoginPage';
+import OrderHistoryPage from './components/OrderHistoryPage';  // Import the new page
+
+
 function App() {
   return (
     <Router>
@@ -20,6 +23,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/order-history" element={<OrderHistoryPage />} /> {/* Add route for order history */}
       </Routes>
     </Router>
   );
