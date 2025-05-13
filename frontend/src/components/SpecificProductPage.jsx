@@ -47,10 +47,46 @@ const SpecificProductPage = () => {
   };
 
   // Placeholder for add-to-cart logic
-  const handleAddToCart = () => {
-    alert(`Added ${quantity} of "${product.name}" to cart.`);
-    // You can implement actual API POST here later
-  };
+ const handleAddToCart = async () => {
+  try {
+    const userData = JSON.parse(localStorage.getItem('userData'));
+    const customerId = userData?.customer_id;
+
+    if (!customerId) {
+      alert('Please log in to add items to your cart.');
+      return;
+    }
+
+    // Prepare the cart item with correct field names
+    const cartItem = {
+      customerId: customerId,   // Use 'customerId' (not 'customer_id')
+      productId: product.product_id,   // Use 'productId' (not 'product_id')
+      quantity: quantity,   // 'quantity' stays the same
+    };
+
+    console.log("Sending to /cart/add:", cartItem); // Debug log
+
+    // Make the POST request to add to cart
+    const response = await axios.post('http://localhost:5000/api/cart/add', cartItem);
+
+    if (response.data.success) {
+      alert(`Added ${quantity} of "${product.name}" to your cart.`);
+    } else {
+      alert(response.data.message || 'Something went wrong.');
+    }
+
+  } catch (error) {
+    console.error('Error adding to cart:', error);
+    if (error.response) {
+      console.error("Backend says:", error.response.data);
+      alert(error.response.data.message || 'Failed to add to cart.');
+    } else {
+      alert('Failed to add item to cart.');
+    }
+  }
+};
+
+
 
   if (loading) return <Typography>Loading product...</Typography>;
   if (error) return <Typography>{error}</Typography>;

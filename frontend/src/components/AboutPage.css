@@ -3,6 +3,7 @@
     --secondary: #f8f9fa;
     --dark: #343a40;
     --light: #ffffff;
+    --fav: "#e0c097";
   }
   
   .about-page {
@@ -21,6 +22,7 @@
     text-align: center;
     color: var(--light);
     padding: 0 20px;
+    
    
   }
   
@@ -47,6 +49,7 @@
     font-size: 2.5rem;
     color: var(--primary);
     margin-bottom: 20px;
+
   }
   
   .story-text {

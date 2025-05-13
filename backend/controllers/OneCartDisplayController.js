@@ -4,11 +4,11 @@ const getOneCart = async (req, res) => {
 console.log ("received request at /api/cart/details")
 console.log("request query: " , req.query)
 
-const {customerId, cartId} = req.query;
+const {customerId} = req.query;
 
 // Validate input
-if (!customerId || !cartId) {
-    console.log("Missing or invalid fields:", { customerId, cartId });
+if (!customerId ) {
+    console.log("Missing or invalid fields:", { customerId });
     return res.status(400).json({ message: "Missing required fields" });
 
 
@@ -19,7 +19,7 @@ console.log("connected to DB")
 
 const request = await pool.request();
 request.input('customerId', sql.Int, customerId);
-request.input('cart_id', sql.Int, cartId);
+
 
 const result = await request.execute('specificCartDetails');
 return res.status(200).json(result.recordset);
