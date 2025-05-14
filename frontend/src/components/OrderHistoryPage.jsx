@@ -49,6 +49,7 @@ response.data.data.forEach(item => {
       order_date: formattedDate,
       total_price: item.total_price,
       delivery_status: item.delivery_status,
+     
       
       items: []
     };
@@ -62,7 +63,7 @@ response.data.data.forEach(item => {
     subtotal: item.subtotal
   });
 });
-
+console.log("Grouped Orders:", groupedOrders);
 const finalOrders = Object.values(groupedOrders);
 setOrders(finalOrders);
 

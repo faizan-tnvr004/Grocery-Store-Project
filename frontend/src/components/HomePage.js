@@ -30,11 +30,7 @@ const HomePage = () => {
             Shop
           </Button>
          
-          <Button color="inherit" 
-           component={Link}
-           to= "/about"
-            sx={{ color: '#ffffff' }}>
-              About</Button>
+          <Button color="inherit" sx={{ color: '#ffffff' }}>About</Button>
          
           <Button 
             color="inherit"
@@ -50,21 +46,7 @@ const HomePage = () => {
                H
            </Button>
 
-  <Button 
-          color="inherit"
-          component={Link}
-          to="/admin"
-          sx={{ 
-            color: '#ffffff',
-            minWidth: 'auto',
-            fontWeight: 'bold',
-            fontSize: '1.1rem'
-          }}
-        >
-          A
-        </Button>
-
-          <IconButton 
+            <IconButton 
             color="inherit" 
             sx={{ color: '#ffffff' }}
             component={Link}
@@ -86,7 +68,7 @@ const HomePage = () => {
       {/* Hero Section */}
       <Box
         sx={{
-          background: '#e0c097',
+          background: 'linear-gradient(135deg,rgb(202, 120, 53) 0%, #fff 100%)',
           minHeight: '80vh',
           display: 'flex',
           alignItems: 'center',
@@ -101,7 +83,7 @@ const HomePage = () => {
           <Typography variant="h3" sx={{ 
             fontWeight: 'bold', 
             mb: 2,
-            color: '#2e7d32',
+            color: '#2e7d23',
             fontSize: { xs: '2rem', md: '3rem' }  // Responsive font size
           }}>
             SuperMarket For Fresh Grocery
