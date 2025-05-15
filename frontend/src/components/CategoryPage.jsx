@@ -32,7 +32,7 @@ const CategoryPage = () => {
   return (
     <>
       <TopNavBar />
-      <Box sx={{ padding: 4, textAlign: 'center' , backgroundColor: '#e0c097' ,minHeight: '100vh'}}>
+      <Box sx={{ padding: 4, textAlign: 'center' , backgroundColor: '#fad7a0' ,minHeight: '100vh'}}>
         <Typography variant="h4" gutterBottom
         sx={{ fontSize: '2.5rem', fontFamily: 'Roboto, sans-serif', fontWeight: 'bold', color: '#333' }}>
           Shop by Category

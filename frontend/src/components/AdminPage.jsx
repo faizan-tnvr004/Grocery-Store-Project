@@ -59,7 +59,7 @@ const AdminPage = () => {
   return (
     <div>
       <TopNavBar />
-      <div style={{ padding: '20px', backgroundColor: '#e0c097' }}>
+      <div style={{ padding: '20px', backgroundColor: '#f3e9d2' }}>
         <h1>Admin Page</h1>
 
         <Button
@@ -109,6 +109,7 @@ const AdminPage = () => {
             <TableHead>
               <TableRow>
                 <TableCell sx={{ border: '1px solid black' }}>Order ID</TableCell>
+              <TableCell sx={{  border: '1px solid black' }}>Order ID</TableCell>
                 <TableCell sx={{ border: '1px solid black' }}>Order Date</TableCell>
                 <TableCell sx={{ border: '1px solid black' }}>Total Price</TableCell>
                 <TableCell sx={{ border: '1px solid black' }}>Delivery Status</TableCell>
