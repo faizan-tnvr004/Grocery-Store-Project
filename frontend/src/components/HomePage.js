@@ -46,6 +46,21 @@ const HomePage = () => {
                H
            </Button>
 
+ <Button 
+          color="inherit"
+          component={Link}
+          to="/admin"
+          sx={{ 
+            color: '#ffffff',
+            minWidth: 'auto',
+            fontWeight: 'bold',
+            fontSize: '1.1rem'
+          }}
+        >
+          A
+        </Button>
+
+
             <IconButton 
             color="inherit" 
             sx={{ color: '#ffffff' }}
