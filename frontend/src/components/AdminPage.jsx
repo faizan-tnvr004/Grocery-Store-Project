@@ -108,7 +108,7 @@ const AdminPage = () => {
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell sx={{ border: '1px solid black' }}>Order ID</TableCell>
+
               <TableCell sx={{  border: '1px solid black' }}>Order ID</TableCell>
                 <TableCell sx={{ border: '1px solid black' }}>Order Date</TableCell>
                 <TableCell sx={{ border: '1px solid black' }}>Total Price</TableCell>
