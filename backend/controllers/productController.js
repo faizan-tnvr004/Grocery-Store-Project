@@ -5,9 +5,9 @@ const addProduct = async (req, res) => {
     console.log("Received request at /api/product/add");
     console.log("Request Body:", req.body);
 
-    const { categoryName, productName, price, stockQuantity } = req.body;
+    const { categoryName, productName, price, stockQuantity, urlImage } = req.body;
 
-    if (!categoryName || !productName || price == null || stockQuantity == null) {
+    if (!categoryName || !productName || price == null || stockQuantity == null || urlImage == null) {
         return res.status(400).json({ message: "Missing required fields or invalid quantity" });
     }
 
@@ -20,6 +20,7 @@ const addProduct = async (req, res) => {
             .input('productName', sql.NVarChar(100), productName)
             .input('price', sql.Decimal(10, 2), price)
             .input('stockQuantity', sql.Int, stockQuantity)
+            .input('urlImage', sql.VarChar(500), urlImage)
             .execute('add_product');
 
         return res.status(200).json({ message: "Product added successfully" });

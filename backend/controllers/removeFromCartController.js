@@ -41,7 +41,7 @@ const clearCart = async (req, res) => {
 
     // Validate input
     if (!customerId) {
-        console.log("Missing or invalid fields:", { customerId, productId });
+        console.log("Missing or invalid fields:", { customerId });
         return res.status(400).json({ message: "Missing required fields " });
     }
 
@@ -63,10 +63,6 @@ const clearCart = async (req, res) => {
         res.status(500).json({ message: "Internal server error", error: error.message });
     }
 };
-
-
-
-
 
 
 
