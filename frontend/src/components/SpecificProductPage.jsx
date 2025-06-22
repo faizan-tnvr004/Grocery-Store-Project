@@ -112,6 +112,8 @@ const SpecificProductPage = () => {
         <Box>
           <Typography variant="h4" gutterBottom>{product.name}</Typography>
           <Typography variant="body1" color="text.secondary" gutterBottom>ID: {product.product_id}</Typography>
+          <Typography variant="body1" color="text.secondary" gutterBottom>Stock Quantity: {product.stock_quantity}</Typography>
+
           <Typography variant="body1" gutterBottom>Description: {product.description}</Typography>
           <Typography variant="h6" color="primary">Price: ${product.price}</Typography>
 

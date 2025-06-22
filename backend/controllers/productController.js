@@ -7,7 +7,7 @@ const addProduct = async (req, res) => {
 
     const { categoryName, productName, price, stockQuantity, urlImage } = req.body;
 
-    if (!categoryName || !productName || price == null || stockQuantity == null || urlImage == null) {
+    if (!categoryName || !productName) {
         return res.status(400).json({ message: "Missing required fields or invalid quantity" });
     }
 
@@ -182,5 +182,24 @@ const viewProducts = async (req, res) => {
     }
 };
 
+//seatch products by name
+const searchProductByName = async (req, res) => {
+    try {
+        const { name } = req.params;
 
-module.exports = { addProduct, updateProduct, deleteProduct, retrieveProduct, getLowStockItems, viewProducts };
+        const pool = await poolPromise;
+        const result = await pool.request()
+            .input('searchName', sql.NVarChar(100), name)
+            .execute('search_product_by_name');
+
+        res.status(200).json(result.recordset);
+    } catch (error) {
+        console.error('Search error:', error);
+        res.status(500).json({ message: 'Internal server error', error: error.message });
+    }
+};
+
+
+
+
+module.exports = { addProduct, updateProduct, deleteProduct, retrieveProduct, getLowStockItems, viewProducts , searchProductByName };

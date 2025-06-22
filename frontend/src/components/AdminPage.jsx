@@ -9,6 +9,7 @@ const AdminPage = () => {
   const [orderId, setOrderId] = useState('');
   const [newStatus, setNewStatus] = useState('');
   const [productIdToDelete, setProductIdToDelete] = useState('');
+  const [ThresholdTocheck, SetThresholdTocheck] = useState(50);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -83,6 +84,25 @@ const AdminPage = () => {
             Delete Product
           </Button>
         </div>
+
+   <div style={{ marginBottom: '40px' }}>
+          <TextField
+            label="Low Stock Threshold"
+            type="number"
+            value={ThresholdTocheck}
+            onChange={(e) => SetThresholdTocheck(e.target.value)}
+            style={{ marginRight: '10px' }}
+          />
+          <Button 
+          onClick={() => navigate(`/low-stock?threshold=${ThresholdTocheck}`)}
+    variant="contained"
+    color="warning"
+    size="large">
+            Get Low Stock
+          </Button>
+        </div>
+
+
 
         <div style={{ marginBottom: '20px' }}>
           <TextField

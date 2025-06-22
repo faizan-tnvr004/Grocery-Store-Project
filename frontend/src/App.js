@@ -11,6 +11,8 @@ import LoginPage from './components/LoginPage';
 import OrderHistoryPage from './components/OrderHistoryPage';  // Import the new page
 import AdminPage from './components/AdminPage';
 import AddProduct  from './components/AddProduct';
+import SearchProduct from './components/SearchProduct';
+import LowStock from './components/LowStock';
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
         <Route path ="/addProduct" element={<AddProduct />} /> {/* Add route for adding product */}
         <Route path="/order-history" element={<OrderHistoryPage />} /> {/* Add route for order history */}
         <Route path ="/Admin" element={<AdminPage />} /> {/* Add route for admin page */}
+       <Route path="/search" element={<SearchProduct />} />
+       <Route path="/low-stock" element={<LowStock />} /> {/* Add route for low stock items */}
       </Routes>
     </Router>
   );
